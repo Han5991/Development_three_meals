@@ -17,10 +17,7 @@
 	});
 
 	function getBytes(str) {
-		var cnt = 0;
-		for (var i = 0; i < str.length; i++) {
-			cnt += (str.charCodeAt(i) > 128) ? 2 : 1;
-		}
+		var cnt = str.length;
 		return cnt;
 	}
 </script>
@@ -110,9 +107,9 @@ img {
 						<tr>
 							<td>주문 요청 사항</td>
 							<td><textarea style="width: 350px; resize: none;"
-									id="textarea01" name="DOC_TEXT">
+									id="textarea01" name="DOC_TEXT" maxlength="20">
 </textarea></td>
-							<td><span id="cntSPAN">0</span>&nbsp;<span>bytes</span></td>
+							<td><span id="cntSPAN">0</span>&nbsp;<span>/최대 20글자</span></td>
 						</tr>
 					</tbody>
 				</table>
@@ -158,20 +155,31 @@ img {
 						<tr>
 							<td><span class="glyphicon glyphicon-stop"></span>일반결제<br>
 								<div class="radio">
-									<label><input type="radio" name="optradio" checked>신용카드</label>
-									<label><input type="radio" name="optradio">계좌이체</label>
+									<div class="btn-group btn-group-toggle" data-toggle="buttons">
+										<label class="btn  btn-warning"> <input type="radio"
+											name="jb-radio" id="jb-radio-3">신용카드
+										</label> <label class="btn btn-warning"> <input type="radio"
+											name="jb-radio" id="jb-radio-4">계좌이체
+										</label>
+									</div>
 								</div></td>
 						</tr>
 						<tr>
 							<td><span class="glyphicon glyphicon-stop"></span>현장결제<br>
 								<div class="radio">
-									<label><input type="radio" name="optradio1" checked>신용카드</label>
-									<label><input type="radio" name="optradio1">현금지불</label>
+									<div class="btn-group btn-group-toggle" data-toggle="buttons">
+										<label class="btn  btn-warning"> <input type="radio"
+											name="jb-radio" id="jb-radio-3">신용카드
+										</label> <label class="btn  btn-warning"> <input type="radio"
+											name="jb-radio" id="jb-radio-4">현금결제
+										</label>
+									</div>
 								</div></td>
 						</tr>
 						<tr>
 							<td><button type="button" class="btn btn-info"
-									data-toggle="collapse" data-target="#demo">
+									data-toggle="collapse" data-target="#demo"
+									style="background-color: #D9CDBC; border: none;">
 									<span class="glyphicon glyphicon-stop"></span>주문 전에 꼭 참고하세요
 								</button>
 								<div id="demo" class="collapse">
@@ -204,8 +212,10 @@ img {
 							<td>16,500원</td>
 						</tr>
 						<tr>
-							<td><input type="reset" value="주문 다시 하기"><input
-								type="submit" value="결제 및 주문완료"></td>
+							<td><input type="reset" value="주문 다시 하기"
+								class="btn btn-warning"><input type="submit"
+								value="결제 및 주문완료" class="btn btn-warning"></td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>
